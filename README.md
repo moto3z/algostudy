@@ -17,6 +17,95 @@
 
 - 모의고사
 
+```cpp
+#include <string>
+#include <vector>
+#define DEBUG 0
+using namespace std;
+int gnum1(int nums,vector<int> answers);
+int gnum2(int nums,vector<int> answers);
+int gnum3(int nums,vector<int> answers);
+int num1[]={1, 2, 3, 4, 5};
+int num2[]={2, 1, 2, 3, 2, 4, 2, 5};
+int num3[]={3, 3, 1, 1, 2, 2, 4, 4, 5, 5};//get point
+int sn1=sizeof(num1)/sizeof(sn1);
+int sn2=sizeof(num2)/sizeof(sn1);
+int sn3=sizeof(num3)/sizeof(sn1);
+int pa=0,pb=0,pc=0;
+//1->5, 2->8, 3->10
+
+vector<int> solution(vector<int> answers) {
+    vector<int> answer;
+    
+    int point[4] = {0};    
+    int temp=0;
+    int nums = answers.size();
+    
+    point[1]=gnum1(nums,answers);
+    point[2]=gnum2(nums,answers);
+    point[3]=gnum3(nums,answers);
+    
+    
+    //return answer;
+    ///*
+    //answer making
+    for(int i=1 ; i<=3 ; i++) {
+        if(temp<point[i]) {
+            temp=point[i];
+        }
+    }
+    
+    for(int i=1 ; i<=3 ; i++) {
+        if(temp==point[i]) {
+            answer.push_back(i);
+        }
+    }
+    
+    
+        
+    
+    
+    return answer;
+}
+
+
+int gnum1(int nums,vector<int> answers) {
+    for(int i=0; i<nums ; i++) {    
+        if(answers[i]==num1[i%(sn1)]) {
+            pa++;
+            
+        }
+    }
+    return pa;
+    
+}
+
+
+
+int gnum2(int nums,vector<int> answers) {
+    
+    //get num2's point
+    for(int i=0; i<nums ; i++) {
+        if(answers[i]==num2[i%(sn2)]) {
+            pb++;
+        }
+    }
+    return pb;
+}
+
+
+
+int gnum3(int nums,vector<int> answers) {
+    
+    //get num3's point
+    for(int i=0; i<nums ; i++) {
+        if(answers[i]==num3[i%(sn3)]) {
+            pc++;
+        }
+    }
+    return pc;
+}
+```
 ```python
 DEBUG = 1
 
