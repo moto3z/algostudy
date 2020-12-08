@@ -74,6 +74,66 @@ bool solution(vector<string> phone_book) {
     return answer;
 }
 
+```
+<br>
+<br>
+<br>
+
+# 해설
+- 단순 구현문제이므로, 위에서 문제분석을 읽고 그대로 코드를 옮기면 된다.
+- 따라서 이 문제에서는 스니핏 해설이 존재하지 않는다.
+- 로컬에서의 테스트를 위해(for Visual Studio && MSVC) 테스트코드가 추가된 버전을 수록함.
+
+```cpp
+include <iostream>
+#include <string>
+#include <stack>
+#include <algorithm>
+#include <vector>
+#include <cmath>
+#include <queue>
+
+using namespace std;
+
+const int DEBUG = 0;
+
+bool lcomp(string a, string b) {
+    int la = a.length();
+    int lb = b.length();
+    if (la < lb) {
+        return true;
+    }
+    else if (la > lb) {
+        return false;
+    }
+    else if (la == lb) {
+        return (a < b);
+    }
+    else {
+        //이런경우는 없다
+        return (a < b);
+    }
+    
+}
+
+bool solution(vector<string> phone_book) {
+    bool answer = true;
+
+    sort(phone_book.begin(), phone_book.end(), lcomp);
+    int n = phone_book.size();
+    for (int i = 0; i < n; i++) {
+        for (int j = i+1; j < n; j++) {
+            int ret = phone_book[j].find(phone_book[i]);
+            //if (0<= ret && ret<=n) {
+            if (0== ret) {
+                return false;
+            }
+        }
+    }
+
+    return answer;
+}
+
 int main() {
     vector<string> tc1 = { "119", "97674223", "1195524421" };
     vector<string> tc2 = { "456", "789","123" };
@@ -99,47 +159,3 @@ int main() {
     return 0;
 }
 ```
-
-# 해설
-
-```cpp
-
-```
-
-- ㄴㅇㄹ
-- ㄴㅇㄹ
-
-```cpp
-
-```
-
-- ㄴㅇㄹ
-- ㄴㅇㄹ
-
-```cpp
-
-```
-
-- ㄴㅇㄹ
-- ㄴㅇㄹ
-
-```cpp
-
-```
-
-- ㄴㅇㄹ
-- ㄴㅇㄹ
-
-```cpp
-
-```
-
-- ㄴㅇㄹ
-- ㄴㅇㄹ
-
-```cpp
-
-```
-
-- ㄴㅇㄹ
-- ㄴㅇㄹ
