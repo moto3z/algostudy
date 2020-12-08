@@ -96,8 +96,8 @@ for (int i = 0; i < len; i++) {
 ```cpp
 
 while (1) {
-    @@@@
-		@@@@
+    //@@@@
+    //@@@@뒤에서 설명하는 부분이라 생략
 
     if( (wait.empty()!= true) && (weight >= (cur_w + wait.front())) ){
         temp.tin = time;
@@ -114,9 +114,12 @@ while (1) {
 }
     
 ```
-
-- @@@@@에다가는 뒤에 설명함
-
+- crossing큐에 Truck을 추가하는 부분이며, 매번 다리의 허용중량을 초과하지 않는지 검사하고 추가해야 한다.
+- timeline을 따라가며 계산하는탓에, 이 코드의 종료시간은 다리 길이*트럭댓수이다. 결국 O(n*m) 이므로 N^2 에 버금가는 시간복잡도이지만, 문제의 nm 제한이 낮아서 성공할수 있다.
+- @@@@@은 뒷부분에 설명하므로 여기서는 생략함
+<br>
+<br>
+<br>
 ```cpp
 if (wait.empty() == true && crossing.empty() == true) {
         break;
@@ -138,5 +141,6 @@ if (wait.empty() == true && crossing.empty() == true) {
         }
     }
 ```
-
+- if(time - cur.tin >= bridge_length) : 트럭의 이동거리는 다리의 길이인데, 여기서 모든 트럭은 동일한 속도로 이동하므로 거리는 시간에 정비례한다.
+  - 따라서 원래 문제대로라면 다리의 길이만큼 트럭이 이동해야되지만, 트럭의 진입시간만 알아낸다면 트럭이 다리를 빠져나왔는지 아닌지를 알수 있다.
 - wait 큐와 crossing 큐  둘다 건넜으면 break;
