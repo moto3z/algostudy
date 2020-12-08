@@ -25,7 +25,7 @@
 # 코드
 
 ```cpp
-include <iostream>
+#include <iostream>
 #include <string>
 #include <stack>
 #include <algorithm>
