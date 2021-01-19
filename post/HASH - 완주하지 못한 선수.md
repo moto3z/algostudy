@@ -83,3 +83,41 @@ def solution(participant, completion):
     
     return answer
 ```
+
+- Java8 코드
+```
+import java.util.*;
+
+public class first{
+	public static void main(String[] args) 
+	{
+		Solution mysol = new Solution();
+		String p1[] = {"leo", "kiki", "eden"};
+		String c1[] = {"eden", "kiki"};
+		String ret = mysol.solution(p1,c1);
+		System.out.println(ret);
+
+	}
+}
+
+
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        
+    	String answer = "";
+    	
+    	
+    	Arrays.sort(participant);
+    	Arrays.sort(completion);
+    	
+    	for(int i=0 ; i<completion.length ; i++) { 
+    		if(!participant[i].equals(completion[i])){
+    			return participant[i];
+    		}
+    	}
+    	
+    	
+        return participant[completion.length];
+    }
+}
+```
