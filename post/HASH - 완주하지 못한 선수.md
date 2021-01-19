@@ -22,7 +22,9 @@
     1. Hash 자료구조의 특성을 이용해서 participant에서 completion 을 하나하나 삭제하기
     2. participant , completion 둘다 정렬(사전순) 해서 양측에 존재하면  Pass, 한쪽에만 존재하는 문자열이 정답임
 
-- 아래 풀이는 2번으로  C++ 과 Python으로 풀었다.
+- 이 문제는 효율성도 점검하는데, 위 두가지 풀이중 
+    - 1번 Hash 자료구조의 특성을 이용하면 전체 연산량은 N번이고,
+    - 2번 정렬2번+순차탐색 방식으로 풀면 전체 연산량은 N+LogN*2  정도 된다.
 
 # 코드
 
@@ -55,7 +57,7 @@ string solution(vector<string> participant, vector<string> completion) {
 }
 ```
 
-- 이 문제는 효율성도 점검한다
+
 - Python3 코드
 
 ```python
