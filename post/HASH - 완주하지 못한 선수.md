@@ -85,7 +85,7 @@ def solution(participant, completion):
 ```
 
 - Java8 코드
-```
+```java
 import java.util.*;
 
 public class first{
